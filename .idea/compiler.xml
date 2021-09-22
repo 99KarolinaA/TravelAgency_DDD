@@ -13,6 +13,7 @@
         <module name="offer-management" />
         <module name="accomodation" />
         <module name="shared-kernel" />
+        <module name="TravelAgency_DDD" />
         <module name="transportation" />
       </profile>
     </annotationProcessing>

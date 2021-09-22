@@ -129,11 +129,11 @@ public class OfferServiceImpl implements OfferService {
             offerRepository.save(offer);
 
             //  When an offer is reserved, the variable numRoomsAgency needs to be decreased in the bounded context accommodation using domain events
-            if (offer.getPlaceId().getId() != null)
+            if (offer.getPlaceId()!= null)
                 domainEventPublisher.publish(new ReservedRoomsForPlace(offer.getPlaceId().getId(), (int) reservationForm.getAmount()));
 
             //  When an offer is reserved, the variable numSeatsAgency needs to be decreased in the bounded context transportation using domain events
-            if (offer.getTransportationId().getId() != null)
+            if (offer.getTransportationId() != null)
                 domainEventPublisher.publish(new ReservedSeatsForTransportation(offer.getTransportationId().getId(), (int) reservationForm.getAmount()));
      /*
             THIS CODE WON'T WORK BECAUSE I DON'T HAVE FORMS IN THE FRONTEND FOR AGENCY
